@@ -35,6 +35,18 @@ export default function Home() {
             More Info
           </button>
         </div>
+
+        <div>
+          {[1, 2, 3, 4, 5].map((index) => (
+            <Image
+              key={index}
+              src={`/item_${index}.png`}
+              fill={true}
+              alt='Image'
+              className='rounded'
+            />
+          ))}
+        </div>
       </main>
     </div>
   );
