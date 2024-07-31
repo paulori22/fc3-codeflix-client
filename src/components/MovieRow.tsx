@@ -1,7 +1,9 @@
+import { Movies } from '@/types/movie';
 import Image from 'next/image';
 
 type MovieRowProps = {
   sectionTitle: string;
+  movies: Movies;
 };
 
 type MovieCardProps = {
@@ -25,7 +27,7 @@ const MovieCard = ({ index }: MovieCardProps) => {
   );
 };
 
-export default function MovieRow({ sectionTitle }: MovieRowProps) {
+export default function MovieRow({ sectionTitle, movies }: MovieRowProps) {
   return (
     <div className='flex-col space-y-4'>
       <div className='flex'>
@@ -33,8 +35,8 @@ export default function MovieRow({ sectionTitle }: MovieRowProps) {
           {sectionTitle}
         </h2>
       </div>
-      <div className='scrollbar-hide -ml-8 flex space-x-4 overflow-x-scroll p-6'>
-        {[1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5].map((index) => (
+      <div className='-ml-8 flex space-x-4 overflow-x-scroll p-6 scrollbar-hide'>
+        {movies.map((movie, index) => (
           <MovieCard key={index} index={index} />
         ))}
       </div>
